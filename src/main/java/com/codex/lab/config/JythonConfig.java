@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
+import static com.codex.lab.util.constants.ApplicationConstants.JYTHON_LIB_PATH;
+
 @Configuration
 public class JythonConfig {
 
@@ -13,7 +15,7 @@ public class JythonConfig {
 	public PythonInterpreter interpreter(){
 		//      Setup  Config properties for python interpreter
 		Properties props = new Properties();
-		props.put("python.home", "src/main/resources/lib/jython-standalone-2.7.3.jar/Lib");
+		props.put("python.home", JYTHON_LIB_PATH);
 		props.put("python.console.encoding", "UTF-8");
 		props.put("python.import.site", "false");
 		Properties properties = System.getProperties();

@@ -27,6 +27,10 @@ public class PythonExecutorImpl implements CodeExecutor {
 		interpreter.exec(executionRequest.getCodeContent());
 		interpreter.close();
 
-		return CodeExecutionResponse.builder().codeContent(executionRequest.getCodeContent()).codeOutput(stringWriter.toString()).language(1).build();
+		return CodeExecutionResponse
+				.builder()
+				.codeContent(executionRequest.getCodeContent())
+				.codeOutput(stringWriter.toString())
+				.language(1).build();
 	}
 }
