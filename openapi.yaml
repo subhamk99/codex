@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: Code Execution API
+  description: API for executing code snippets
+  version: 1.0.0
+paths:
+  /execute:
+    post:
+      summary: Execute Code
+      description: Executes the provided code snippet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CodeExecutionRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CodeExecutionResponse'
+components:
+  schemas:
+    CodeExecutionRequest:
+      type: object
+      properties:
+        codeContent:
+          type: string
+          description: Code content to be executed
+        language:
+          type: integer
+          description: Language identifier
+      required:
+        - codeContent
+        - language
+    CodeExecutionResponse:
+      type: object
+      properties:
+        codeContent:
+          type: string
+          description: Original code content
+        codeOutput:
+          type: string
+          description: Output of the executed code
+        language:
+          type: integer
+          description: Language identifier
+      required:
+        - codeContent
+        - codeOutput
+        - language
