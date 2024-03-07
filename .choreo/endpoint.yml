@@ -1,0 +1,12 @@
+# +required Version of the endpoint configuration YAML
+version: 0.1
+
+# +required List of endpoints to create
+endpoints:
+  # +required Unique name for the endpoint. (This name will be used when generating the managed API)
+  - name: Execute Python Code REST Endpoint
+    port: 8080
+    type: REST
+    networkVisibility: Public
+    context: /api/execute
+#    schemaFilePath: openapi.yaml
